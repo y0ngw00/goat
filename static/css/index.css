@@ -82,6 +82,15 @@ body {
     margin: 8px 4px;
 }
 
+/* Buttons for links that are not available yet */
+.button.is-dark.is-pending,
+.button.is-dark.is-pending:hover {
+  cursor: default;
+  transform: none;
+  box-shadow: var(--shadow-md);
+  background: var(--text-primary) !important;
+}
+
 .dnerf {
   font-variant: small-caps;
 }
@@ -120,6 +129,7 @@ body {
     color: var(--text-primary) !important;
     margin-bottom: 2rem !important;
     line-height: 1.1 !important;
+    text-wrap: balance;
 }
 
 .publication-banner {
@@ -148,6 +158,7 @@ body {
 .publication-authors {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500;
+    font-size: 1.583rem; /* ~19pt: 4pt larger than the previous 15pt (is-size-5) */
     margin-bottom: 1.5rem;
 }
 
@@ -615,7 +626,7 @@ code {
   }
   
   .publication-authors {
-    font-size: 1rem !important;
+    font-size: 1.333rem !important;
   }
   
   .button {
@@ -751,3 +762,13 @@ a:focus {
 
 
 
+
+/* Ablation study video descriptions */
+.results-carousel .ablation-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 52rem;
+  margin: 0.5rem auto 0;
+}
