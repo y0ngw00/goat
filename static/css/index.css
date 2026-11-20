@@ -844,10 +844,10 @@ a:focus {
   padding-top: 0;
 }
 
-/* Teaser video at 90% of the content width, centered */
+/* Teaser video at 85% of the content width, centered */
 .intro-wrap .teaser video {
   display: block;
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
 }
 
