@@ -1,9 +1,9 @@
 /* Modern CSS Variables for consistent theming */
 :root {
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
+  --primary-color: #db2777; /* pink, same family as the Jungdam Won link (#f9a8d4) */
+  --primary-hover: #be185d;
   --secondary-color: #64748b;
-  --accent-color: #0ea5e9;
+  --accent-color: #ec4899;
   --text-primary: #1e293b;
   --text-secondary: #64748b;
   --text-light: #94a3b8;
@@ -15,7 +15,7 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-primary: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
   --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-subtle: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   --border-radius: 12px;
@@ -900,4 +900,13 @@ a:focus {
   .intro-bg-video {
     display: none;
   }
+}
+
+/* Plain text links follow the pink theme (Bulma defaults to blue) */
+main a:not(.button) {
+  color: var(--primary-color);
+}
+
+main a:not(.button):hover {
+  color: var(--primary-hover);
 }
