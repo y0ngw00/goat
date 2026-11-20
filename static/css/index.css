@@ -772,3 +772,107 @@ a:focus {
   max-width: 52rem;
   margin: 0.5rem auto 0;
 }
+
+/* ===== Intro: background video behind title + teaser; plays once, holds last frame ===== */
+.intro-wrap {
+  position: relative;
+  overflow: hidden;
+  /* Last frame doubles as the fallback (before load, on error, reduced motion) */
+  background: #0b0609 url("../images/goat_intro_last.jpg") center / cover no-repeat;
+}
+
+.intro-bg-video,
+.intro-bg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.intro-bg-video {
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Darken behind the title for legibility; fade into the page only in the last few px */
+.intro-bg-overlay {
+  z-index: 1;
+  background:
+    linear-gradient(to bottom,
+      rgba(8, 4, 8, 0.55) 0%,
+      rgba(8, 4, 8, 0.2) 35%,
+      rgba(8, 4, 8, 0.2) calc(100% - 72px),
+      var(--background-primary) 100%);
+}
+
+.intro-wrap > .hero {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.intro-hero {
+  animation: none;
+}
+
+.intro-hero .hero-body {
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+}
+
+/* Teaser sits right under the buttons */
+.intro-wrap .teaser .hero-body {
+  padding-top: 0;
+}
+
+/* Keep the teaser caption clear of the bottom fade (72px) */
+.intro-wrap .teaser .hero-body {
+  padding-bottom: 6rem;
+}
+
+.intro-wrap .teaser .subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.intro-hero .publication-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.intro-hero .publication-authors {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.intro-hero .publication-authors a {
+  color: #f9a8d4 !important;
+}
+
+.intro-hero .publication-authors a:hover {
+  color: #fbcfe8 !important;
+}
+
+.intro-hero .button.is-dark,
+.intro-hero .button.is-dark.is-pending,
+.intro-hero .button.is-dark.is-pending:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.intro-hero .button.is-dark:not(.is-pending):hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+.intro-hero .button.is-dark.is-pending {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-bg-video {
+    display: none;
+  }
+}

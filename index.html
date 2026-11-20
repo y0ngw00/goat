@@ -205,7 +205,14 @@
   </button>
 
   <main id="main-content">
-  <section class="hero">
+  <!-- Intro wrapper: background video spans the title and teaser sections -->
+  <div class="intro-wrap">
+  <!-- Background intro: plays once on load, then holds on its last frame -->
+  <video class="intro-bg-video" autoplay muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <source src="static/videos/goat_intro.mp4" type="video/mp4">
+  </video>
+  <div class="intro-bg-overlay" aria-hidden="true"></div>
+  <section class="hero intro-hero">
     <div class="hero-body">
       <div class="container is-max-widescreen">
         <div class="columns is-centered">
@@ -284,6 +291,8 @@
   </div>
 </section>
 <!-- End teaser video -->
+  </div>
+  <!-- End intro wrapper -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">

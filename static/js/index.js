@@ -83,7 +83,29 @@ function setupVideoCarouselAutoplay() {
     });
 }
 
+// Intro background video: play once, hold on the last frame.
+// Falls back to the CSS last-frame image if autoplay is blocked or motion is reduced.
+function setupIntroVideo() {
+    const video = document.querySelector('.intro-bg-video');
+    if (!video) return;
+
+    const showStill = () => { video.style.display = 'none'; };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        showStill();
+        return;
+    }
+
+    video.loop = false;
+    video.addEventListener('error', showStill, true);
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(showStill);
+    }
+}
+
 $(document).ready(function() {
+    setupIntroVideo();
     // Check for click events on the navbar burger icon
 
     var options = {
